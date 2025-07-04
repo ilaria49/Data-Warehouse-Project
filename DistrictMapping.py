@@ -1,0 +1,59 @@
+import pandas as pd
+
+# Esempio: carica il tuo dataset
+# df = pd.read_csv("infrazioni.csv")
+
+# Crea un dizionario di mappatura
+city_mapping = {
+    # BETHESDA
+    "BETHESD A": "BETHESDA",
+    "BETHESDAMD": "BETHESDA",
+    "BETHESDAY": "BETHESDA",
+    "N BETHESDA": "BETHESDA",
+
+    # GAITHERSBURG
+    "GAITHERSB URG": "GAITHERSBURG",
+    "GAITHERSBBURG": "GAITHERSBURG",
+    "GAITHERSBERG": "GAITHERSBURG",
+    "GAITHERSBIRG": "GAITHERSBURG",
+    "GAITHERSBRG": "GAITHERSBURG",
+    "GAITHERSBRUG": "GAITHERSBURG",
+    "GAITHERSBUEG": "GAITHERSBURG",
+    "GAITHERSURG": "GAITHERSBURG",
+
+    # GERMANTOWN
+    "GERMANTOWN MD": "GERMANTOWN",
+    "GERMANTOWN RD": "GERMANTOWN",
+    "GERMANTOWNN": "GERMANTOWN",
+    "GERMANTOWNQ": "GERMANTOWN",
+    "MONTGOMERYGERMANTOWN": "GERMANTOWN",
+
+    # ROCKVILLE
+    "ROCKVIE": "ROCKVILLE",
+    "ROCKVIILLE": "ROCKVILLE",
+    "ROCKVILE": "ROCKVILLE",
+    "ROCKVILEL": "ROCKVILLE",
+    "ROCKVILL": "ROCKVILLE",
+    "ROCKVILLE F": "ROCKVILLE",
+    "ROCKVILLE MD": "ROCKVILLE",
+    "ROCKVILLE PK": "ROCKVILLE",
+    "ROCKVILLE        U": "ROCKVILLE",
+    "ROCKVILLEM": "ROCKVILLE",
+    "RROCKVILLE": "ROCKVILLE",
+
+    # SILVER SPRING
+    "SILVER SILVER SPRING": "SILVER SPRING",
+    "SILVER SP": "SILVER SPRING",
+    "SILVER SPEING": "SILVER SPRING",
+    "SILVER SPG": "SILVER SPRING",
+    "SILVER SPGS": "SILVER SPRING",
+    "SILVER SPIING": "SILVER SPRING",
+    "SILVER SPING": "SILVER SPRING",
+
+    # WHEATON
+    "WHEATON MD": "WHEATON",
+    "WHEATONN": "WHEATON",
+}
+
+# Applichiamo la mappatura alla colonna Driver City
+df['Driver City'] = df['Driver City'].str.strip().replace(city_mapping)
